@@ -25,7 +25,7 @@ jobs:
         with:
           path: |
             ~/.cache/go-build
-            ${{ env.GOMODCACHE }}
+            $HOME/go/pkg/mod
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-go-
