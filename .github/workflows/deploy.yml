@@ -1,0 +1,86 @@
+name: CI + Auto Release
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.20
+
+      - name: Cache Go modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/go-build
+            $HOME/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+
+      - name: Run tests
+        run: go test ./... -coverprofile=coverage.out
+
+      - name: Determine next tag
+        id: determine_tag
+        run: |
+          set -euo pipefail
+          LATEST=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          echo "Latest tag: $LATEST"
+          TAG=${LATEST#v}
+          IFS='.' read -r MA MI PA <<< "$TAG"
+          MA=${MA:-0}
+          MI=${MI:-0}
+          PA=${PA:-0}
+          NEW_TAG="v${MA}.$MI.$((PA+1))"
+          echo "NEW_TAG=$NEW_TAG" >> $GITHUB_OUTPUT
+          echo "NEW_TAG=$NEW_TAG" >> $GITHUB_ENV
+
+      - name: Select push token (PERSONAL_TOKEN preferred)
+        id: select_token
+        run: |
+          if [ -n "${{ secrets.PERSONAL_TOKEN }}" ]; then
+            echo "PUSH_TOKEN=${{ secrets.PERSONAL_TOKEN }}" >> $GITHUB_ENV
+          else
+            echo "PUSH_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
+          fi
+
+      - name: Create and push tag
+        env:
+          NEW_TAG: ${{ env.NEW_TAG }}
+          PUSH_TOKEN: ${{ env.PUSH_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if git rev-parse "$NEW_TAG" >/dev/null 2>&1; then
+            echo "Tag $NEW_TAG already exists, skipping tag creation"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "$NEW_TAG" -m "Automated release $NEW_TAG"
+          git push "https://x-access-token:${PUSH_TOKEN}@github.com/${REPO}.git" "$NEW_TAG"
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ env.PUSH_TOKEN }}
+        with:
+          tag_name: ${{ env.NEW_TAG }}
+          release_name: ${{ env.NEW_TAG }}
+          body: "Automated release created by CI"
+          draft: false
+          prerelease: false
