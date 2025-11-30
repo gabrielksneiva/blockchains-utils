@@ -92,7 +92,9 @@ func TestBaseRepo_ConfirmPublishesEvents(t *testing.T) {
 	// confirm a tx
 	tx := domain.Transaction{Hash: "tx_1", From: "a", To: "b", Amount: domain.Amount{Value: nil}}
 	// seed tx into client
-	client.SubmitTransaction(context.Background(), tx)
+	if _, err := client.SubmitTransaction(context.Background(), tx); err != nil {
+		t.Fatalf("seed tx err: %v", err)
+	}
 
 	// call repo confirm which should publish events
 	_ = repo.ConfirmTransaction(domain.TxHash("tx_1"), 7)

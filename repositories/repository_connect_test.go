@@ -58,7 +58,8 @@ func TestConcreteConnectsAndErrorBranches(t *testing.T) {
 		t.Fatalf("expected broadcast error")
 	}
 
-	// GetTransactionStatus error
-	if _, err := trepo.GetTransactionStatus(ctx, domain.TxHash("nohash")); err == nil { /* expected */
+	// GetTransactionStatus error: expect an error for unknown tx
+	if _, err := trepo.GetTransactionStatus(ctx, domain.TxHash("nohash")); err == nil {
+		t.Fatalf("expected error from GetTransactionStatus for unknown tx")
 	}
 }

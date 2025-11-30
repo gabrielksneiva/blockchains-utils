@@ -60,8 +60,9 @@ func runRepoTests(t *testing.T, repo interface{}) {
 		t.Fatalf("connect err: %v", err)
 	}
 
-	// balance missing
-	if _, err := r.GetBalance(ctx, "noaddr"); err == nil { /* ok */
+	// balance missing: expect an error
+	if _, err := r.GetBalance(ctx, "noaddr"); err == nil {
+		t.Fatalf("expected error for missing balance")
 	}
 
 	// broadcast
