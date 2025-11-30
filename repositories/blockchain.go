@@ -2,7 +2,7 @@ package repositories
 
 import (
     "context"
-    "github.com/gabrielksneiva/blockchains-utils/domain"
+    "blockchains-utils/domain"
 )
 
 type BlockchainRepository interface{

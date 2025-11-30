@@ -2,7 +2,7 @@
 
 Go module providing a small, testable abstraction over multiple blockchains (BTC, ETH, SOL, TRON) following DDD / Clean Architecture principles.
 
-Module path: `github.com/gabrielksneiva/blockchains-utils`
+Module path: `blockchains-utils`
 
 Quickstart example
 
@@ -14,10 +14,10 @@ import (
     "fmt"
     "time"
 
-    bu "github.com/gabrielksneiva/blockchains-utils"
-    "github.com/gabrielksneiva/blockchains-utils/infra/eventbus"
-    "github.com/gabrielksneiva/blockchains-utils/infra/rpc"
-    "github.com/gabrielksneiva/blockchains-utils/repositories"
+    bu "blockchains-utils"
+    "blockchains-utils/infra/eventbus"
+    "blockchains-utils/infra/rpc"
+    "blockchains-utils/repositories"
 )
 
 func main() {

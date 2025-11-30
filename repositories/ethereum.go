@@ -3,8 +3,8 @@ package repositories
 import (
 	"context"
 
-	"github.com/gabrielksneiva/blockchains-utils/infra/eventbus"
-	"github.com/gabrielksneiva/blockchains-utils/infra/rpc"
+	"blockchains-utils/infra/eventbus"
+	"blockchains-utils/infra/rpc"
 )
 
 type EthereumRepository struct {
