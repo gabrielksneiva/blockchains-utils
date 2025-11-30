@@ -10,6 +10,13 @@ github.com/gabrielksneiva/blockchains-utils/infra/eventbus/eventbus.go:46.19,50.
 github.com/gabrielksneiva/blockchains-utils/infra/eventbus/eventbus.go:50.26,51.15 1 1
 github.com/gabrielksneiva/blockchains-utils/infra/eventbus/eventbus.go:51.15,54.10 3 1
 github.com/gabrielksneiva/blockchains-utils/infra/eventbus/eventbus.go:58.2,58.19 1 1
+github.com/gabrielksneiva/blockchains-utils/infra/postgres/logger.go:15.41,17.2 1 1
+github.com/gabrielksneiva/blockchains-utils/infra/postgres/logger.go:19.90,20.17 1 1
+github.com/gabrielksneiva/blockchains-utils/infra/postgres/logger.go:20.17,22.3 1 1
+github.com/gabrielksneiva/blockchains-utils/infra/postgres/logger.go:23.2,24.12 2 1
+github.com/gabrielksneiva/blockchains-utils/infra/postgres/logger.go:27.60,28.17 1 1
+github.com/gabrielksneiva/blockchains-utils/infra/postgres/logger.go:28.17,30.3 1 1
+github.com/gabrielksneiva/blockchains-utils/infra/postgres/logger.go:31.2,32.12 2 1
 github.com/gabrielksneiva/blockchains-utils/infra/rpc/clients.go:22.44,28.2 1 1
 github.com/gabrielksneiva/blockchains-utils/infra/rpc/clients.go:30.62,32.2 1 1
 github.com/gabrielksneiva/blockchains-utils/infra/rpc/clients.go:34.68,38.2 3 1
@@ -29,13 +36,6 @@ github.com/gabrielksneiva/blockchains-utils/infra/rpc/clients.go:77.9,79.3 1 0
 github.com/gabrielksneiva/blockchains-utils/infra/rpc/clients.go:80.2,82.18 3 1
 github.com/gabrielksneiva/blockchains-utils/infra/rpc/clients.go:85.55,89.2 3 1
 github.com/gabrielksneiva/blockchains-utils/infra/rpc/clients.go:91.85,95.2 3 1
-github.com/gabrielksneiva/blockchains-utils/infra/postgres/logger.go:15.41,17.2 1 1
-github.com/gabrielksneiva/blockchains-utils/infra/postgres/logger.go:19.90,20.17 1 1
-github.com/gabrielksneiva/blockchains-utils/infra/postgres/logger.go:20.17,22.3 1 1
-github.com/gabrielksneiva/blockchains-utils/infra/postgres/logger.go:23.2,24.12 2 1
-github.com/gabrielksneiva/blockchains-utils/infra/postgres/logger.go:27.60,28.17 1 1
-github.com/gabrielksneiva/blockchains-utils/infra/postgres/logger.go:28.17,30.3 1 1
-github.com/gabrielksneiva/blockchains-utils/infra/postgres/logger.go:31.2,32.12 2 1
 github.com/gabrielksneiva/blockchains-utils/domain/valueobjects.go:17.44,18.16 1 1
 github.com/gabrielksneiva/blockchains-utils/domain/valueobjects.go:18.16,20.6 1 1
 github.com/gabrielksneiva/blockchains-utils/domain/valueobjects.go:21.5,22.27 2 1
