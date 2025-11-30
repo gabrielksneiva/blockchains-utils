@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"blockchains-utils/events"
+	"github.com/gabrielksneiva/blockchains-utils/events"
 )
 
 // This comment indicates the start of the Go code

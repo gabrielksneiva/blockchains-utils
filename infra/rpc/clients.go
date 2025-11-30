@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"blockchains-utils/domain"
+	"github.com/gabrielksneiva/blockchains-utils/domain"
 )
 
 var ErrNotFound = errors.New("not found")

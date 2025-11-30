@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"blockchains-utils/domain"
+	"github.com/gabrielksneiva/blockchains-utils/domain"
 )
 
 func TestSimulatedClient_BlockAdvanceAndMissingBalance(t *testing.T) {

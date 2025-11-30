@@ -1,9 +1,10 @@
 package eventbus
 
 import (
-	"blockchains-utils/events"
 	"context"
 	"sync"
+
+	"github.com/gabrielksneiva/blockchains-utils/events"
 )
 
 // Simple in-memory event bus with idempotency using a map

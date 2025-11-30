@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"time"
 
-	"blockchains-utils/domain"
-	"blockchains-utils/events"
-	"blockchains-utils/infra/eventbus"
-	"blockchains-utils/infra/rpc"
+	"github.com/gabrielksneiva/blockchains-utils/domain"
+	"github.com/gabrielksneiva/blockchains-utils/events"
+	"github.com/gabrielksneiva/blockchains-utils/infra/eventbus"
+	"github.com/gabrielksneiva/blockchains-utils/infra/rpc"
 )
 
 type BaseRepo struct {

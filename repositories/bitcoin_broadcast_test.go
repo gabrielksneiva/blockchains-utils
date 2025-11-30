@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"testing"
 
-	"blockchains-utils/domain"
-	"blockchains-utils/infra/eventbus"
-	"blockchains-utils/infra/rpc"
+	"github.com/gabrielksneiva/blockchains-utils/domain"
+	"github.com/gabrielksneiva/blockchains-utils/infra/eventbus"
+	"github.com/gabrielksneiva/blockchains-utils/infra/rpc"
 )
 
 func TestBitcoinRepository_BroadcastAndStatus(t *testing.T) {
